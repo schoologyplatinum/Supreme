@@ -1,0 +1,510 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><title>Supreme</title><rect width="100%" height="100%" fill="#050507"/><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;margin:0;padding:0;overflow:hidden"><iframe style="display:block;width:100%;height:100%;border:0"/></div></foreignObject><desc id="d"><![CDATA[<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supreme</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<style>
+*{box-sizing:border-box}
+:root{--bg:#050507;--panel:#08080b;--raise:#0d0d12;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.12);--text:#f5f3fc;--muted:#8a869b;--dim:#5d5a6c;--acc:#8b5cf6;--acc2:#b79cff;--glow:rgba(139,92,246,.35)}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#1b1a24;border-radius:10px;border:3px solid transparent;background-clip:content-box}::-webkit-scrollbar-track{background:transparent}
+
+/* shell */
+.app{display:flex;height:100%;position:relative}
+.side{width:244px;flex:none;background:var(--bg);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:12px 10px 10px;transition:margin-left .28s cubic-bezier(.4,0,.2,1);z-index:30}
+.app.collapsed .side{margin-left:-244px}
+.chrome{display:flex;align-items:center;gap:2px;padding:0 2px;margin-bottom:12px;height:30px}
+.chrome .sp{flex:1}
+.ib{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--muted);transition:.15s}
+.ib:hover:not(:disabled){background:rgba(255,255,255,.07);color:var(--text)}
+.ib:disabled{opacity:.3;cursor:default}
+.urlwrap{position:relative}
+.bar{display:flex;align-items:center;gap:10px;background:var(--raise);border:1px solid var(--line);border-radius:10px;padding:0 12px;transition:.18s}
+.bar:focus-within{border-color:rgba(167,139,250,.55);box-shadow:0 0 0 3px rgba(139,92,246,.14)}
+.bar svg{color:var(--muted)}
+.bar input{flex:1;min-width:0;background:none;border:0;outline:0;font-size:13px}
+.bar input::placeholder{color:var(--dim)}
+.side .bar{height:34px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0 14px}
+.tile{aspect-ratio:1/.98;border-radius:12px;background:var(--raise);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:.18s}
+.tile svg.i{width:20px;height:20px}
+.tile:hover{border-color:var(--line2);color:var(--text);transform:translateY(-1px);background:#12111a}
+.tile.g1{color:#c4b5fd}
+.row{display:flex;align-items:center;gap:11px;width:100%;height:36px;padding:0 10px;border-radius:9px;font-size:13px;color:#cfccdc;text-align:left;transition:.15s;position:relative}
+.row:hover{background:rgba(255,255,255,.05)}
+.row.on{background:rgba(255,255,255,.08);color:#fff;font-weight:500}
+.row .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .x{opacity:0;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;color:var(--muted)}
+.row .x svg{width:13px;height:13px}
+.row:hover .x,.row.on .x{opacity:1}
+.row .x:hover{background:rgba(255,255,255,.1);color:#fff}
+.row kbd{font:500 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--dim)}
+.tabs{flex:1;overflow-y:auto;margin:2px -4px 8px;padding:0 4px;display:flex;flex-direction:column;gap:3px;min-height:0}
+.nav{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line);padding-top:8px}
+.nav .row{height:40px}
+.nav .row.cur{color:#fff}
+.nav .row.cur svg{color:var(--acc2)}
+
+/* main */
+.main{flex:1;position:relative;min-width:0;overflow:hidden;background:var(--bg)}
+.aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(80px);will-change:transform}
+.a1{width:58%;height:78%;left:-14%;top:-8%;background:radial-gradient(closest-side,rgba(112,44,224,1),rgba(72,24,170,.6) 55%,transparent);animation:d1 22s ease-in-out infinite alternate}
+.a2{width:46%;height:60%;left:22%;top:-24%;background:radial-gradient(closest-side,rgba(86,28,204,1),rgba(50,14,130,.55) 60%,transparent);animation:d2 26s ease-in-out infinite alternate}
+.a3{width:40%;height:50%;right:-12%;top:-18%;background:radial-gradient(closest-side,rgba(50,14,120,.6),transparent);animation:d3 30s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(6%,10%) rotate(14deg) scale(1.08)}}
+@keyframes d2{to{transform:translate(-8%,12%) rotate(-10deg) scale(1.12)}}
+@keyframes d3{to{transform:translate(-10%,8%) scale(.9)}}
+.grain{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 0,rgba(5,5,7,.55) 55%,var(--bg) 100%)}
+.floatbtn{position:absolute;left:14px;top:14px;z-index:20;display:none;background:rgba(13,13,18,.7);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.app.collapsed .floatbtn{display:grid}
+.pane{position:absolute;inset:0;overflow-y:auto;display:none}
+.pane.show{display:block;animation:in .28s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pane.gamepane.show{display:flex;flex-direction:column;animation:none}
+
+/* new tab */
+.center{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 24px 90px}
+.mark{font-size:clamp(46px,7vw,68px);font-weight:600;letter-spacing:-.045em;line-height:1;padding-bottom:12px;position:relative;text-shadow:0 0 40px rgba(139,92,246,.35)}
+.mark:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px;background:#fff;box-shadow:0 0 16px rgba(255,255,255,.65),0 0 40px rgba(167,139,250,.5)}
+.search{width:min(680px,100%);margin-top:30px;position:relative}
+.search .bar{height:50px;border-radius:11px;background:rgba(10,10,14,.82);backdrop-filter:blur(8px);padding:0 16px}
+.search .bar input{font-size:15px}
+.search.err .bar{border-color:rgba(248,113,113,.6);animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.msg{height:20px;margin-top:12px;font-size:13px;color:#f19b9b;text-align:center;opacity:0;transition:.2s}
+.msg.on{opacity:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:6px}
+.chip{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(13,13,18,.6);font-size:12.5px;color:var(--muted);transition:.15s}
+.chip b{font:500 12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--acc2)}
+.chip:hover{border-color:rgba(167,139,250,.45);color:#fff;background:rgba(139,92,246,.12)}
+
+/* suggestions dropdown */
+.dd{position:absolute;left:0;right:0;top:calc(100% + 6px);background:rgba(12,12,17,.97);border:1px solid var(--line2);border-radius:12px;padding:5px;box-shadow:0 18px 50px rgba(0,0,0,.6);z-index:60;display:none;backdrop-filter:blur(14px)}
+.dd.open{display:block}
+.dd button{display:flex;align-items:center;gap:12px;width:100%;padding:9px 10px;border-radius:8px;text-align:left}
+.dd button.sel,.dd button:hover{background:rgba(139,92,246,.16)}
+.dd .c{font:600 12.5px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--acc2);width:34px}
+.dd .n{font-size:13px;font-weight:500}
+.dd .d{font-size:12px;color:var(--muted);margin-left:auto;text-align:right}
+.side .dd .d{display:none}
+
+/* content pages */
+.page{max-width:1080px;margin:0 auto;padding:64px 32px 60px}
+.page h1{font-size:30px;font-weight:600;letter-spacing:-.03em;margin:0 0 6px}
+.page .sub{color:var(--muted);font-size:14px;margin:0 0 26px;line-height:1.6;max-width:620px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{background:rgba(11,11,16,.8);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:left;transition:.2s;display:flex;flex-direction:column;backdrop-filter:blur(6px)}
+button.card:hover,a.card:hover{border-color:rgba(167,139,250,.5);transform:translateY(-3px);box-shadow:0 14px 40px rgba(76,29,149,.28)}
+.thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#1d1238,#0c0a16);position:relative;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .4s}
+.thumb img.ok{opacity:1}
+.thumb span{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;font-weight:700;color:rgba(167,139,250,.35)}
+.cb{padding:13px 15px 15px}
+.cb h3{margin:0 0 4px;font-size:14.5px;font-weight:600}
+.cb p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.filter{width:min(420px,100%);margin-bottom:22px}
+.filter .bar{height:42px}
+.empty{color:var(--muted);padding:40px 0;font-size:14px}
+.panel{background:rgba(11,11,16,.8);border:1px solid var(--line);border-radius:14px;padding:22px 24px;backdrop-filter:blur(6px);line-height:1.7;color:#cfccdc;font-size:14px;max-width:720px}
+.panel+.panel{margin-top:14px}
+.panel h3{margin:0 0 8px;font-size:15px;color:#fff}
+.cmdlist{display:grid;gap:8px;margin-top:10px}
+.cmdlist div{display:flex;gap:14px;align-items:baseline}
+.cmdlist b{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--acc2);width:36px}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 16px;border-radius:10px;background:linear-gradient(135deg,#8b5cf6,#6d3de0);color:#fff;font-size:13.5px;font-weight:600;transition:.18s;box-shadow:0 6px 22px rgba(109,61,224,.35)}
+.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.btn.ghost{background:var(--raise);border:1px solid var(--line2);box-shadow:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:600;color:#d9ccff;background:rgba(139,92,246,.18);border:1px solid rgba(167,139,250,.3);margin-bottom:14px}
+.fakechat{display:flex;gap:10px;align-items:center;margin-top:18px;opacity:.55}
+.fakechat .bar{flex:1;height:44px}
+
+/* game tab */
+.gbar{height:42px;flex:none;display:flex;align-items:center;gap:10px;padding:0 12px 0 56px;background:rgba(5,5,7,.92);border-bottom:1px solid var(--line);font-size:13px}
+.app:not(.collapsed) .gbar{padding-left:14px}
+.gbar b{font-weight:600}
+.gbar .sp{flex:1}
+.gwrap{flex:1;position:relative;background:#000;min-height:0}
+.gwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.load{position:absolute;inset:0;display:grid;place-items:center;background:var(--bg);color:var(--muted);font-size:13px;text-align:center;z-index:2}
+.load .sp{width:30px;height:30px;border-radius:50%;border:3px solid rgba(139,92,246,.2);border-top-color:var(--acc);animation:spin .8s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:radial-gradient(60% 70% at 25% 20%,rgba(98,36,200,.55),transparent),radial-gradient(50% 50% at 75% 5%,rgba(60,18,150,.5),transparent),#050507;transition:opacity .6s,visibility .6s}
+#gate.out{opacity:0;visibility:hidden}
+.gbox{width:min(380px,calc(100% - 32px));text-align:center;padding:34px 30px;border-radius:18px;background:rgba(8,8,12,.78);border:1px solid var(--line2);backdrop-filter:blur(16px);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.gbox .mark{display:inline-block;font-size:44px}
+.gbox p{color:var(--muted);font-size:13.5px;margin:26px 0 16px}
+.gbox input{width:100%;height:44px;border-radius:10px;border:1px solid var(--line2);background:var(--raise);padding:0 14px;text-align:center;font-size:15px;outline:0;letter-spacing:.2em}
+.gbox input:focus{border-color:rgba(167,139,250,.6);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
+.gbox button{width:100%;height:44px;margin-top:10px;border-radius:10px;background:linear-gradient(135deg,#8b5cf6,#6d3de0);font-weight:600;font-size:14px}
+.gbox button:hover{filter:brightness(1.1)}
+.gerr{height:18px;margin-top:10px;font-size:12.5px;color:#f19b9b}
+.shake{animation:shake .35s}
+
+@media(max-width:760px){
+ .side{position:absolute;inset:0 auto 0 0;box-shadow:20px 0 60px rgba(0,0,0,.7)}
+ .page{padding:70px 18px 40px}
+ .dd .d{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="gate" role="dialog" aria-modal="true" aria-label="Passcode">
+ <form class="gbox" id="gform" autocomplete="off">
+  <div class="mark">supreme</div>
+  <p>Enter the passcode to continue.</p>
+  <input id="gcode" type="password" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="••••••" aria-label="Passcode">
+  <button type="submit">Continue</button>
+  <div class="gerr" id="gerr" role="alert"></div>
+ </form>
+</div>
+
+<div class="app" id="app">
+ <aside class="side" id="side">
+  <div class="chrome">
+   <button class="ib" id="back" title="Back" disabled><span data-i="left"></span></button>
+   <button class="ib" id="fwd" title="Forward" disabled><span data-i="right"></span></button>
+   <button class="ib" id="reload" title="Reload"><span data-i="reload"></span></button>
+   <span class="sp"></span>
+   <button class="ib" id="toggle" title="Toggle sidebar"><span data-i="panel"></span></button>
+  </div>
+  <div class="urlwrap">
+   <label class="bar"><span data-i="search"></span><input id="url" type="text" placeholder="Search or enter command" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Address bar"></label>
+   <div class="dd" id="dd1"></div>
+  </div>
+  <div class="tiles">
+   <button class="tile g1" data-go="/g" title="Games"><span data-i="game" data-s="20"></span></button>
+   <button class="tile" data-go="/ai" title="AI"><span data-i="spark" data-s="20"></span></button>
+   <button class="tile" id="tilePlus" title="New tab"><span data-i="plus" data-s="20"></span></button>
+  </div>
+  <button class="row" id="newTab"><span data-i="plus"></span><span class="t">New tab</span></button>
+  <div class="tabs" id="tabs"></div>
+  <nav class="nav" id="nav"></nav>
+ </aside>
+
+ <section class="main">
+  <div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+  <div class="grain"></div>
+  <button class="ib floatbtn" id="toggle2" title="Show sidebar"><span data-i="panel"></span></button>
+  <div id="panes"></div>
+ </section>
+</div>
+
+<script>
+var GAMES=[{"title": "Adopt Me!", "description": "Hatch pets from eggs, and trade with friends!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/Adopt_Me_-_Halloween_V89.html", "image": "https://i.postimg.cc/NfzjgFzF/Adopt-Me.png"}, {"title": "Blockcraft", "description": "Build homes, explore a new world, go on adventures, you name it!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/Blockcraft%20-%20Redstone.html", "image": "https://i.postimg.cc/RhwjJM1v/image-2026-10-24-221626690.png"}, {"title": "Retro Bowl", "description": "Manage your football team and play with them!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/UGS/Retro_Bowl.html", "image": "https://i.postimg.cc/dt40GK5x/Retro-Bowl.webp"}, {"title": "Retro Bowl College", "description": "Manage your football team old-school.", "url": "https://cdn.jsdelivr.net/gh/ReznorsRevenge1/retro-bowl-college/index.html", "image": "https://i.postimg.cc/qv1CBKf0/retrobowlcollege.png"}, {"title": "Drive Mad", "description": "Drive around obstacles and finish the levels!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/UGS/Drive_Mad.html", "image": "https://i.postimg.cc/Ls7YJfyK/drive-mad-logo.png"}, {"title": "Longcat", "description": "Stretch the cat to fit the box!", "url": "https://cdn.jsdelivr.net/gh/schoologyplatinum/PGSGames/LongcatUpd.html", "image": "https://i.postimg.cc/hP5Fd2gq/Longcat.png"}, {"title": "Dice A Million", "description": "(Takes a second to load) Roll the dice?", "url": "https://cdn.jsdelivr.net/gh/NotRexed/Unblocked-Games/diceamillion/index.html", "image": "https://i.postimg.cc/MGDg9p8k/Dice-AMillion.avif"}, {"title": "Cookie Clicker", "description": "Click the cookie and gain clicks!", "url": "https://cdn.jsdelivr.net/gh/coderdojoindy/cookie-clicker/index.html", "image": "https://i.postimg.cc/44MqL0jb/cookieclicker.jpg"}, {"title": "Geometry Dash", "description": "FIXED! Jump on cubes and avoid the spikes!", "url": "https://cdn.jsdelivr.net/gh/ihavenoidea212/geometry-dash/index.html", "image": "https://i.postimg.cc/c4MPJq76/image-2026-10-29-162642587.png"}, {"title": "Murder Mystery", "description": "Find the murderer, kill the murderer, be the murderer!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/UGS/MurderMystery.html", "image": "https://i.postimg.cc/KzwL5zfZ/image-2026-11-04-165401589.png"}, {"title": "Roblox Obby", "description": "100 level obby based off popular Roblox obbies!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/Super%20Obby%203D.html", "image": "https://i.postimg.cc/d3FTj3Y1/Colorful-Roblox-Obby-in-the-Sky.png"}, {"title": "Cooking Class", "description": "Make food, but don't burn the house down!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/Cooking_Class.html", "image": "https://i.postimg.cc/gcKKBFBC/Cooking-Class.png"}, {"title": "Hole.io 3D", "description": "Become a sinkhole! Suck in different things.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/Hole%20Rush%203D%20(1).html", "image": "https://i.postimg.cc/Pxyd05DT/Hole-io.png"}, {"title": "Build A Boat For Treasure", "description": "Build a boat and avoid hitting obstacles!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/BoatCraft%203D%20(1).html", "image": "https://i.postimg.cc/c4bLsCbD/Build-a-Boat-for-Treasure.png"}, {"title": "Paper.io 3D", "description": "Conquer the different countries and play with your friends!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/Paper.io%203D%20Multiplayer.html", "image": "https://i.postimg.cc/66Zk73q0/Paper-io-3D.png"}, {"title": "Flee The Facility", "description": "Flee the beast and hack computers to escape!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/flee-the-facility%20(3).html", "image": "https://i.postimg.cc/vBbQPVck/Flee-the-Facility.png"}, {"title": "Football Bowl", "description": "Play football! 3D retro bowl?", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/gridiron3d.html", "image": "https://i.postimg.cc/B64qhKXr/Football-Bowl.png"}, {"title": "Solar Explorer", "description": "Explore planets, moons, and stars around the universe!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/SolarExplorer.html", "image": "https://i.postimg.cc/rs6S6dbw/image-2026-11-01-144908066.png"}, {"title": "Bloxburg", "description": "Become an architect from the comfort of your school.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/homecraft3d%20(1).html", "image": "https://i.postimg.cc/J7QQdVdK/Bloxburg.png"}, {"title": "Cataclysm", "description": "Survive the disasters.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/CATACLYSM_google_sites%20(1).html", "image": "https://i.postimg.cc/bvPLdyGj/Screenshot-2026-10-04-173856.png"}, {"title": "Doors", "description": "Find the keys, escape the hotel.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/DOORS%20-%20Hotel%20Elysium.html", "image": "https://i.postimg.cc/s2pj9cDB/Doors.png"}, {"title": "Backrooms", "description": "Escape the backrooms.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/backrooms%20(1).html", "image": "https://i.postimg.cc/KYXcMVFy/Backrooms.png"}, {"title": "Block Blast", "description": "Play fake tetris!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/blockblast.html", "image": "https://i.postimg.cc/02QNRDc6/Block-Blast.png"}, {"title": "Fish for Fun", "description": "Fish and ride boats to different islands!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/castaways-catch-updated%20(3).html", "image": "https://i.postimg.cc/3JXQqRHG/image-2026-10-24-181839578.png"}, {"title": "Dockfire", "description": "Similar to Call of Duty, but different.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/dockfire.html", "image": "https://i.postimg.cc/zfmDgM5S/Dockfire.png"}, {"title": "FL Studio", "description": "Create beats with famous producers' sounds!", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/FL%20Studio.html", "image": "https://i.postimg.cc/KzYRhzPg/image-2026-10-25-194648911.png"}, {"title": "Stealing Cars V", "description": "GTA 5 but definitely worse.", "url": "https://cdn.jsdelivr.net/gh/N3rdy3333/My-games/drift-city.html", "image": "https://i.postimg.cc/HxdpSyrL/Stealing-Cars-V.png"}, {"title": "DON'T SPLASH", "description": "It can't see you, but it can hear you!", "url": "https://cdn.jsdelivr.net/gh/schoologyplatinum/PGSGames/DONTSPLASH.html", "image": "https://i.postimg.cc/MTnvXNLp/image-2026-11-06-195820431.png"}];
+var SUGGESTIONS_URL="https://forms.gle/hf6Mupg9d2ZCakRn9";
+var RATINGS_URL="https://forms.gle/FG2uJF8ckC5NkoBb7";
+
+/* ---------- icons ---------- */
+var P={
+ search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+ game:'<line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"/>',
+ home:'<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+ spark:'<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+ info:'<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+ bulb:'<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+ plus:'<path d="M5 12h14"/><path d="M12 5v14"/>',
+ x:'<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+ left:'<path d="m15 18-6-6 6-6"/>',
+ right:'<path d="m9 18 6-6-6-6"/>',
+ reload:'<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>',
+ panel:'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/>',
+ full:'<path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>',
+ ext:'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+ ast:'<path d="M12 6v12"/><path d="M17.196 9 6.804 15"/><path d="m6.804 9 10.392 6"/>',
+ star:'<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>'
+};
+function ic(n,s){return '<svg class="i" viewBox="0 0 24 24"'+(s?' style="width:'+s+'px;height:'+s+'px"':'')+'>'+P[n]+'</svg>'}
+function paintIcons(root){(root||document).querySelectorAll('[data-i]').forEach(function(e){e.outerHTML=ic(e.dataset.i,e.dataset.s)})}
+
+/* ---------- commands ---------- */
+var CMDS={
+ '/h':{name:'Home',desc:'Start page',icon:'home',title:'Home'},
+ '/g':{name:'Games',desc:'Browse every game',icon:'game',title:'Games'},
+ '/ai':{name:'AI',desc:'Assistant (coming soon)',icon:'spark',title:'AI'},
+ '/a':{name:'About',desc:'What Supreme is',icon:'info',title:'About'},
+ '/sr':{name:'Suggestions & Ratings',desc:'Send ideas, rate games',icon:'bulb',title:'Suggestions'}
+};
+var ORDER=['/h','/g','/ai','/a','/sr'];
+function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+
+/* ---------- state ---------- */
+var tabs=[],active=null,nid=1;
+var $=function(id){return document.getElementById(id)};
+function mkTab(view){var t={id:nid++,hist:[view],pos:0,pane:document.createElement('div')};tabs.push(t);$('panes').appendChild(t.pane);build(t);return t}
+function cur(){return active}
+function viewOf(t){return t.hist[t.pos]}
+function titleOf(v){
+ if(v.k==='new')return 'New Tab';
+ if(v.k==='game')return GAMES[v.g].title;
+ return CMDS['/'+v.k].title;
+}
+function urlOf(v){
+ if(v.k==='new')return '';
+ if(v.k==='game')return '/g/'+slug(GAMES[v.g].title);
+ return '/'+v.k;
+}
+function iconOf(v){if(v.k==='new')return 'ast';if(v.k==='game')return 'game';return CMDS['/'+v.k].icon}
+
+function go(t,view,push){
+ if(push!==false){t.hist=t.hist.slice(0,t.pos+1);t.hist.push(view);t.pos++}
+ build(t);select(t);
+}
+function select(t){
+ active=t;
+ tabs.forEach(function(x){x.pane.classList.toggle('show',x===t)});
+ refresh();
+ if(innerWidth<=760)$('app').classList.add('collapsed');
+}
+function closeTab(t){
+ var i=tabs.indexOf(t);tabs.splice(i,1);t.pane.remove();
+ if(!tabs.length){select(mkTab({k:'new'}));return}
+ if(active===t)select(tabs[Math.min(i,tabs.length-1)]);else refresh();
+}
+
+/* ---------- sidebar rendering ---------- */
+function refresh(){
+ var box=$('tabs');box.replaceChildren();
+ tabs.forEach(function(t){
+  var v=viewOf(t),r=document.createElement('div');
+  r.className='row'+(t===active?' on':'');r.tabIndex=0;
+  r.innerHTML=ic(iconOf(v));
+  var s=document.createElement('span');s.className='t';s.textContent=titleOf(v);r.appendChild(s);
+  var x=document.createElement('button');x.className='x';x.title='Close tab';x.innerHTML=ic('x');
+  x.onclick=function(e){e.stopPropagation();closeTab(t)};
+  r.appendChild(x);
+  r.onclick=function(){select(t)};
+  r.onkeydown=function(e){if(e.key==='Enter')select(t)};
+  box.appendChild(r);
+ });
+ var v=viewOf(active);
+ $('url').value=urlOf(v);
+ $('back').disabled=active.pos<=0;
+ $('fwd').disabled=active.pos>=active.hist.length-1;
+ $('nav').querySelectorAll('.row').forEach(function(r){r.classList.toggle('cur',r.dataset.cmd==='/'+v.k||(v.k==='game'&&r.dataset.cmd==='/g'))});
+}
+function buildNav(){
+ var n=$('nav');
+ ['/ai','/g','/h','/a','/sr'].forEach(function(c){
+  var b=document.createElement('button');b.className='row';b.dataset.cmd=c;
+  b.innerHTML=ic(CMDS[c].icon)+'<span class="t">'+CMDS[c].name+'</span><kbd>'+c+'</kbd>';
+  b.onclick=function(){run(c)};n.appendChild(b);
+ });
+}
+
+/* ---------- command runner ---------- */
+function run(text,fromBar){
+ var raw=(text||'').trim();if(!raw)return {ok:false,m:''};
+ var parts=raw.split(/\s+/),c=parts[0].toLowerCase(),arg=parts.slice(1).join(' ');
+ if(!CMDS[c])return {ok:false,m:'Unknown command. Try /g, /h, /ai, /a or /sr.'};
+ var t=cur();
+ var view={k:c.slice(1)};if(c==='/g'&&arg)view.q=arg;
+ go(t,view);
+ return {ok:true};
+}
+
+/* ---------- command bars (dropdown) ---------- */
+function attach(input,dd,onErr){
+ var sel=-1,items=[];
+ function list(){
+  var v=input.value.trim().toLowerCase().split(/\s+/)[0]||'';
+  items=ORDER.filter(function(c){return v===''||v==='/'||c.indexOf(v)===0});
+  if(input.value.indexOf(' ')>-1)items=[];
+  dd.replaceChildren();
+  items.forEach(function(c,i){
+   var b=document.createElement('button');b.type='button';
+   b.innerHTML='<span class="c">'+c+'</span><span class="n">'+CMDS[c].name+'</span><span class="d">'+CMDS[c].desc+'</span>';
+   b.onmousedown=function(e){e.preventDefault();pick(c)};
+   dd.appendChild(b);
+  });
+  sel=-1;dd.classList.toggle('open',items.length>0);
+ }
+ function mark(){Array.prototype.forEach.call(dd.children,function(b,i){b.classList.toggle('sel',i===sel)})}
+ function pick(c){input.value=c;dd.classList.remove('open');submit()}
+ function submit(){
+  var r=run(input.value);dd.classList.remove('open');
+  if(!r.ok&&r.m)onErr(r.m);else{onErr('');if(input.id!=='url')input.value='';input.blur()}
+ }
+ input.addEventListener('input',function(){onErr('');list()});
+ input.addEventListener('focus',function(){if(input.id==='url')input.select();list()});
+ input.addEventListener('blur',function(){setTimeout(function(){dd.classList.remove('open')},120)});
+ input.addEventListener('keydown',function(e){
+  e.stopPropagation();
+  if(e.key==='ArrowDown'&&items.length){e.preventDefault();sel=(sel+1)%items.length;mark()}
+  else if(e.key==='ArrowUp'&&items.length){e.preventDefault();sel=(sel<=0?items.length:sel)-1;mark()}
+  else if(e.key==='Tab'&&items.length){e.preventDefault();input.value=items[Math.max(sel,0)];list()}
+  else if(e.key==='Enter'){e.preventDefault();if(sel>-1)input.value=items[sel];submit()}
+  else if(e.key==='Escape'){dd.classList.remove('open');input.blur();if(input.id==='url')refresh()}
+ });
+}
+
+/* ---------- views ---------- */
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function build(t){
+ var v=viewOf(t),p=t.pane;p.replaceChildren();p.className='pane'+(v.k==='game'?' gamepane':'')+(t===active?' show':'');
+ ({new:vNew,h:vHome,g:vGames,ai:vAI,a:vAbout,sr:vSR,game:vGame}[v.k]||vNew)(t,p,v);
+ paintIcons(p);
+}
+function chipsRow(){
+ var c=el('div','chips');
+ ORDER.forEach(function(k){
+  var b=el('button','chip','<b>'+k+'</b>'+CMDS[k].name);b.onclick=function(){run(k)};c.appendChild(b);
+ });
+ return c;
+}
+function vNew(t,p){
+ var c=el('div','center');
+ c.appendChild(el('div','mark','supreme'));
+ var s=el('div','search'),bar=el('label','bar','<span data-i="search"></span><input type="text" placeholder="Search or enter command (/g, /h, /ai, /a, /sr)" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Search">'),dd=el('div','dd');
+ s.appendChild(bar);s.appendChild(dd);c.appendChild(s);
+ var m=el('div','msg');c.appendChild(m);c.appendChild(chipsRow());
+ p.appendChild(c);paintIcons(p);
+ var inp=bar.querySelector('input');inp.id='ntInput'+t.id;
+ attach(inp,dd,function(msg){m.textContent=msg;m.classList.toggle('on',!!msg);s.classList.remove('err');if(msg){void s.offsetWidth;s.classList.add('err')}});
+ if(t===active)setTimeout(function(){inp.focus({preventScroll:true})},60);
+}
+function vHome(t,p){
+ var w=el('div','page');
+ w.appendChild(el('div','pill','Home'));
+ w.appendChild(el('h1',null,'Welcome to Supreme'));
+ w.appendChild(el('p','sub','A fast, clean place to play. Use the search bar with a command, or jump in below.'));
+ var g=el('div','cards');
+ ORDER.filter(function(c){return c!=='/h'}).forEach(function(k){
+  var b=el('button','card');
+  b.innerHTML='<div class="cb" style="padding:18px"><div style="color:var(--acc2);margin-bottom:12px">'+ic(CMDS[k].icon,22)+'</div><h3>'+CMDS[k].name+' <span style="color:var(--dim);font:500 12px ui-monospace,monospace;margin-left:4px">'+k+'</span></h3><p>'+CMDS[k].desc+'</p></div>';
+  b.onclick=function(){run(k)};g.appendChild(b);
+ });
+ w.appendChild(g);
+ var h=el('h1',null,'Jump back in');h.style.cssText='font-size:18px;margin:36px 0 14px';w.appendChild(h);
+ var gg=el('div','cards');GAMES.slice(0,4).forEach(function(x,i){gg.appendChild(gameCard(x,i))});
+ w.appendChild(gg);p.appendChild(w);
+}
+function gameCard(g,i){
+ var b=el('button','card');
+ var th=el('div','thumb'),ph=el('span',null,'');ph.textContent=g.title.charAt(0);th.appendChild(ph);
+ if(g.image){var im=new Image();im.referrerPolicy='no-referrer';im.loading='lazy';im.alt='';im.onload=function(){im.classList.add('ok')};im.onerror=function(){im.remove()};im.src=g.image;th.appendChild(im)}
+ b.appendChild(th);
+ var cb=el('div','cb');var h=el('h3');h.textContent=g.title;var d=el('p');d.textContent=g.description;cb.appendChild(h);cb.appendChild(d);b.appendChild(cb);
+ b.onclick=function(){openGame(i)};
+ return b;
+}
+function vGames(t,p,v){
+ var w=el('div','page');
+ w.appendChild(el('h1',null,'Games'));
+ var sub=el('p','sub');sub.textContent=GAMES.length+' games. Each one opens in its own tab.';w.appendChild(sub);
+ var f=el('div','filter','<label class="bar"><span data-i="search"></span><input type="text" placeholder="Filter games" autocomplete="off" spellcheck="false" aria-label="Filter games"></label>');
+ w.appendChild(f);
+ var grid=el('div','cards');w.appendChild(grid);p.appendChild(w);paintIcons(p);
+ var inp=f.querySelector('input');
+ function draw(){
+  var q=inp.value.trim().toLowerCase();grid.replaceChildren();var n=0;
+  GAMES.forEach(function(g,i){if(!q||g.title.toLowerCase().indexOf(q)>-1||g.description.toLowerCase().indexOf(q)>-1){grid.appendChild(gameCard(g,i));n++}});
+  if(!n){var e=el('div','empty');e.textContent='No games match "'+inp.value.trim()+'".';grid.appendChild(e)}
+ }
+ inp.addEventListener('keydown',function(e){e.stopPropagation()});
+ inp.addEventListener('input',draw);
+ if(v.q)inp.value=v.q;
+ draw();
+}
+function vAI(t,p){
+ var w=el('div','page');
+ w.appendChild(el('div','pill','Coming soon'));
+ w.appendChild(el('h1',null,'AI'));
+ w.appendChild(el('p','sub','The assistant is not set up yet. It will live here once it is ready.'));
+ var pn=el('div','panel','<h3>Not available yet</h3>Check back later. In the meantime, try <b style="color:var(--acc2)">/g</b> to browse games.<div class="fakechat"><label class="bar"><span data-i="spark"></span><input disabled placeholder="Ask anything"></label></div>');
+ w.appendChild(pn);p.appendChild(w);
+}
+function vAbout(t,p){
+ var w=el('div','page');
+ w.appendChild(el('h1',null,'About'));
+ w.appendChild(el('p','sub','Supreme is a clean, browser-style hub for playing games.'));
+ w.appendChild(el('div','panel','<h3>How it works</h3>Every game opens in its own tab inside the page, so you can keep several running and switch between them from the sidebar. The search bar only takes commands.<div class="cmdlist"><div><b>/h</b><span>Home</span></div><div><b>/g</b><span>Games (add a word to filter, like <i>/g cookie</i>)</span></div><div><b>/ai</b><span>AI assistant, coming soon</span></div><div><b>/a</b><span>This page</span></div><div><b>/sr</b><span>Suggestions and ratings</span></div></div>'));
+ w.appendChild(el('div','panel','<h3>Tips</h3>Press <b>/</b> anywhere to jump to the address bar. Use the arrow keys and Enter to pick a command from the list.'));
+ p.appendChild(w);
+}
+function vSR(t,p){
+ var w=el('div','page');
+ w.appendChild(el('h1',null,'Suggestions & Ratings'));
+ w.appendChild(el('p','sub','Tell us what to add next, and rate the games you play.'));
+ var a=el('div','panel','<h3>Suggestion box</h3>Have an idea for a game or a feature? Send it in.<br><button class="btn" type="button">Open suggestion box <span data-i="ext"></span></button>');
+ a.querySelector('button').onclick=function(){window.open(SUGGESTIONS_URL,'_blank','noopener')};
+ var b=el('div','panel','<h3>Game ratings</h3>Rate the games and tell us which ones you like best.<br><button class="btn ghost" type="button"><span data-i="star"></span> Rate games</button>');
+ b.querySelector('button').onclick=function(){window.open(RATINGS_URL,'_blank','noopener')};
+ w.appendChild(a);w.appendChild(b);p.appendChild(w);
+}
+
+/* ---------- game tabs ---------- */
+function openGame(i){
+ var t=mkTab({k:'game',g:i});select(t);
+}
+function vGame(t,p,v){
+ var g=GAMES[v.g];
+ var bar=el('div','gbar','<b></b><span class="sp"></span>');bar.firstChild.textContent=g.title;
+ var fs=el('button','ib');fs.title='Full screen';fs.innerHTML=ic('full');
+ var op=el('a','ib');op.title='Open directly';op.href=g.url;op.target='_blank';op.rel='noopener';op.innerHTML=ic('ext');
+ bar.appendChild(fs);bar.appendChild(op);
+ var wrap=el('div','gwrap');
+ var load=el('div','load','<div><div class="sp"></div>Loading '+'</div>');load.firstChild.appendChild(document.createTextNode(g.title+'...'));
+ var fr=document.createElement('iframe');
+ fr.setAttribute('allow','fullscreen; autoplay; gamepad; clipboard-write; microphone');
+ fr.setAttribute('sandbox','allow-scripts allow-same-origin allow-pointer-lock allow-popups allow-forms allow-modals allow-downloads');
+ wrap.appendChild(fr);wrap.appendChild(load);p.appendChild(bar);p.appendChild(wrap);
+ fs.onclick=function(){(fr.requestFullscreen||fr.webkitRequestFullscreen||function(){}).call(fr)};
+ t.reload=function(){go(t,v,false)};
+ var base;try{base=new URL('.',g.url).href}catch(e){base=''}
+ fetch(g.url).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text()}).then(function(h){
+  h=h.replace(/<base\b[^>]*>/gi,'');var tag='<base href="'+base.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'">';
+  if(/<head\b[^>]*>/i.test(h))h=h.replace(/<head\b[^>]*>/i,function(m){return m+tag});
+  else h='<!DOCTYPE html><html><head>'+tag+'</head><body>'+h+'</body></html>';
+  fr.srcdoc=h;load.remove();setTimeout(function(){try{fr.focus()}catch(e){}},200);
+ }).catch(function(err){
+  load.innerHTML='<div><div style="color:#f19b9b;margin-bottom:12px">Could not load this game ('+String(err.message||err).replace(/[<>&]/g,'')+').</div></div>';
+  var a=el('a','btn','Open directly '+ic('ext'));a.href=g.url;a.target='_blank';a.rel='noopener';load.firstChild.appendChild(a);
+ });
+}
+
+/* ---------- wiring ---------- */
+$('back').onclick=function(){var t=cur();if(t.pos>0){t.pos--;build(t);select(t)}};
+$('fwd').onclick=function(){var t=cur();if(t.pos<t.hist.length-1){t.pos++;build(t);select(t)}};
+$('reload').onclick=function(){var t=cur();build(t);select(t)};
+function tog(){$('app').classList.toggle('collapsed')}
+$('toggle').onclick=tog;$('toggle2').onclick=tog;
+$('newTab').onclick=function(){select(mkTab({k:'new'}))};
+$('tilePlus').onclick=function(){select(mkTab({k:'new'}))};
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){run(b.dataset.go)}});
+buildNav();paintIcons();
+attach($('url'),$('dd1'),function(m){$('url').style.color=m?'#f19b9b':'';if(m)$('url').title=m});
+document.addEventListener('keydown',function(e){
+ var tg=e.target&&e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;
+ if(e.key==='/'){e.preventDefault();if($('app').classList.contains('collapsed'))tog();$('url').focus();$('url').value='/';$('url').dispatchEvent(new Event('input'))}
+});
+if(innerWidth<=760)$('app').classList.add('collapsed');
+select(mkTab({k:'new'}));
+
+/* ---------- passcode gate ---------- */
+(function(){
+ var g=$('gate'),f=$('gform'),inp=$('gcode'),err=$('gerr'),box=f;
+ function h(s){var a=3735928559,b=1103547991,i,c;for(i=0;i<s.length;i++){c=s.charCodeAt(i);a=Math.imul(a^c,2654435761);b=Math.imul(b^c,1597334677)}a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909);b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909);return(4294967296*(2097151&b)+(a>>>0)).toString(36)}
+ var OK="2bvm9ssk56g",app=$('app');
+ app.setAttribute('inert','');
+ setTimeout(function(){try{inp.focus()}catch(e){}},50);
+ ['keydown','keypress','keyup'].forEach(function(ev){inp.addEventListener(ev,function(e){e.stopPropagation()})});
+ f.addEventListener('submit',function(e){
+  e.preventDefault();var v=inp.value.trim().toLowerCase();
+  if(h(v)===OK){err.textContent='';app.removeAttribute('inert');g.classList.add('out');setTimeout(function(){g.remove();var i=document.querySelector('.pane.show input');if(i)i.focus({preventScroll:true})},650)}
+  else{err.textContent='Incorrect passcode. Try again.';inp.value='';box.classList.remove('shake');void box.offsetWidth;box.classList.add('shake');inp.focus()}
+ });
+})();
+</script>
+</body>
+</html>
+]]></desc><script><![CDATA[document.querySelector("iframe").srcdoc=document.getElementById("d").textContent;]]></script></svg>
